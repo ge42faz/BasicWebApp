@@ -16,12 +16,6 @@ public class QueryProcessor {
             return "MyTeam";
         }
         else if (query.contains("largest: "))   {
-            return query
-        }
-        else if (query.contains("plus"))    {
-            return Integer.toString(Integer.parseInt(query.substring(9, query.indexOf("plus"))) + Integer.parseInt(query.substring(query.indexOf("plus") + 5, query.length())));
-        }
-        else {
             String[] num = query.substring(query.indexOf(":") + 1, query.length()).split(", ");
             String s = num[0];
             for (String n : num)    {
@@ -30,6 +24,12 @@ public class QueryProcessor {
                 }
             }
             return s;
+        }
+        else if (query.contains("plus"))    {
+            return Integer.toString(Integer.parseInt(query.substring(9, query.indexOf("plus"))) + Integer.parseInt(query.substring(query.indexOf("plus") + 5, query.length())));
+        }
+        else {
+            return "";
         }
     }
 }
